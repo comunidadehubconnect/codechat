@@ -40,15 +40,15 @@
 </p>
 Vamos precisar de 3 subdomínios
 </p>
-1º  </p> **Chatwoot**
+1º Chatwoot
 </p>
 chatwoot.dominio.com.br
 </p>
-2º  </p> **Conector**
+2º Conector
 </p>
 conector.dominio.com.br
 </p>
-3º  </p> **CodeChat**
+3º CodeChat
 </p>
 codechat.dominio.com.br
 </p>
