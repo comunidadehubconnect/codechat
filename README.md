@@ -1,7 +1,6 @@
 <p align="center">
 	<img src="https://github.com/code-chat-br/whatsapp-api/raw/main/public/images/code.png" alt="Quepasa-logo" width="500" />	
-	<p align="center">Este código é uma implementação do Baileys , como um serviço RestFull Api, que controla as funções do whatsapp.
-Com este você pode criar chats multiserviços, bots de atendimento ou qualquer outro sistema que utilize whatsapp. Com este código você não precisa saber javascript para nodejs, basta iniciar o servidor e fazer as requisições de linguagem que você se sentir mais confortável.</p>
+	<p align="center">Este código é uma implementação do Baileys , como um serviço RestFull Api, que controla as funções do whatsapp </p>
 </p>
 <hr />
 <p align="left">
