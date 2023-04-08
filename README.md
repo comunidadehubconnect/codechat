@@ -76,6 +76,8 @@ cd whatsapp-api
 </p>
 cp chatwoot-codechat/dev-env.yml chatwoot-codechat/env.yml
 </p>
+cd src
+</p>
 nano .env
 </p>
 Altere Linha 72
