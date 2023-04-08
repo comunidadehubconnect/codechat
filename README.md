@@ -35,18 +35,23 @@
 
 ----------------------------------------------------------------------------
 
-Manual ChatWoot+Conector+CodeChat
+**Manual ChatWoot+Conector+CodeChat**
 
+</p>
 Vamos precisar de 3 subdomínios
-
+</p>
 1º Chatwoot
+</p>
 chatwoot.dominio.com.br
-
+</p>
 2º Conector
+</p>
 conector.dominio.com.br
-
+</p>
 3º CodeChat
+</p>
 codechat.dominio.com.br
+</p>
 
 ----------------------------------------------------------------------------
 
@@ -67,29 +72,38 @@ yes
 
 ----------------------------------------------------------------------------
 
-Instalando CodeChat
+**Instalando CodeChat**
 
+</p>
 git clone https://github.com/code-chat-br/whatsapp-api.git
-
+</p>
 cd whatsapp-api
-
+</p>
 cp chatwoot-codechat/dev-env.yml chatwoot-codechat/env.yml
-
+</p>
 nano .env
-
+</p>
 Altere Linha 72
-
+</p>
 URL: https://conector.site/webhook/codechat
-
+</p>
 Altere Linha 73
-
+</p>
 ENABLED: false
+</p>
 para
+</p>
 ENABLED: true
-
+</p>
 npm i
+</p>
 npm run start
+</p>
 pm2 start 'npm run start:prod' --name codechat
+</p>
+
+```
+
 
 sudo nano /etc/nginx/sites-available/codechat
 
@@ -124,36 +138,48 @@ server {
   }
 
   }
+  
+```
 
+</p>
 sudo ln -s /etc/nginx/sites-available/codechat /etc/nginx/sites-enabled
-
+</p>
 
 ----------------------------------------------------------------------------
 
-Instalando Integrador
+**Instalando Integrador**
 
+</p>
 git clone https://github.com/w3nder/chatwoot-codechat
-
+</p>
 cd chatwoot-codechat
-
+</p></p>
 nano .env
-
+</p>
 PORT = 1234
+</p>
 CHATWOOT_ACCOUNT_ID = NUMEROCONTACHATWOOT
+</p>
 CHATWOOT_TOKEN = TOKENDOCHATWOOT
+</p>
 CHATWOOT_BASE_URL = URLDOCHATWOOT
-
+</p>
 CODECHAT_BASE_URL = URLCODECHAT
+</p>
 CODECHAT_API_KEY = TOKENCODECHAT
-
-# SE DESEJA ASSINAR O A MENSAGEM COM O NOME DO USUÁRIO MUDE PARA true
+</p>
 TOSIGN=true
-
+</p>
 npm install
+</p>
 npm run build
+</p>
 pm2 start dist/app.js --name NOMEQUEDESEJAR
-
+</p>
 sudo nano /etc/nginx/sites-available/conector
+</p>
+
+```
 
 server {
 
@@ -186,55 +212,68 @@ server {
   }
 
   }
+  
+ ```
 
+</p>
 sudo ln -s /etc/nginx/sites-available/conector /etc/nginx/sites-enabled
-
+</p>
 sudo certbot --nginx
+</p>
 sudo service nginx restart
+</p>
 
 ----------------------------------------------------------------------------
 
-Primeira parte da Instalação Finalizadas
+**Primeira parte da Instalação Finalizadas**
 
+</p>
 Acesse:
-
+</p>
 chatwoot.dominio.com.br
-
+</p>
 Faça os cadastros
+</p>
 
 ----------------------------------------------------------------------------
 
-Conectando Caixa de Entrada
+**Conectando Caixa de Entrada**
 
+</p>
 WEBHOOK CHATWOOT:
-
+</p>
 Adicione essa url no seu Chatwoot
-
+</p>
 https://conector.site/webhook/chatwoot
-
+</p>
 Crie um contato chatmado BOT
-
+</p>
 Adicione numero telefone ao mesmo
-
+</p>
 +123456
-
+</p>
 Chame contato BOT escreva 
-
+</p>
 /iniciar
-
+</p>
 Pronto para usar
-
+</p>
 Comandos Disponíveis:
-
+</p>
 /iniciar Este comando irá criar uma nova instância e gerar um QR code para você escanear com o WhatsApp. Você poderá conectar-se à instância e começar a usar o bot.
-
+</p>
 /status Este comando irá verificar o status da instância e retornar informações atualizadas sobre o estado da conexão.
-
+</p>
 /desconectar Este comando irá desconectar o WhatsApp da instância, encerrando a conexão.
+</p>
 
 ----------------------------------------------------------------------------
 
+**Pronto tudo Funcionando**
+
 ----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
 </p>
 
 **Gostou do Tutorial? Faça sua Contribuição**
