@@ -96,6 +96,8 @@ npm run start
 </p>
 pm2 start 'npm run start:prod' --name codechat
 </p>
+sudo nano /etc/nginx/sites-available/codechat
+</p>
 
 ```
 
