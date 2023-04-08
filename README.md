@@ -4,15 +4,10 @@
 </p>
 <hr />
 <p align="left">
-	<img src="https://telegram.org/favicon.ico" alt="Telegram-logo" width="32" />
-	<span>Grupo Telegram: </span>
-	<a href="https://t.me/unoapi" target="_blank">Grupo</a>
-</p>
-<hr />
-<p align="left">
 	<img src="https://whatsapp.com/favicon.ico" alt="WhatsAPP-logo" width="32" />
 	<span>Grupo WhatsaAPP: </span>
-	<a href="https://chat.whatsapp.com/KOc9il7AdQVCG06fTmG3Uh" target="_blank">Grupo</a>
+	<a href="https://chat.whatsapp.com/CwcSUOcgPBL6lJWYyvA0NS
+" target="_blank">Grupo</a>
 </p>
 
 ----------------------------------------------------------------------------
