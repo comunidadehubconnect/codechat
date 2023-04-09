@@ -106,6 +106,11 @@ server {
 </p>
 sudo ln -s /etc/nginx/sites-available/codechat /etc/nginx/sites-enabled
 </p>
+</p>
+sudo certbot --nginx
+</p>
+sudo service nginx restart
+</p>
 
 ----------------------------------------------------------------------------
 
