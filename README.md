@@ -37,11 +37,11 @@ git clone https://github.com/code-chat-br/whatsapp-api.git
 </p>
 cd whatsapp-api
 </p>
-cp chatwoot-codechat/dev-env.yml chatwoot-codechat/env.yml
-</p>
 cd src
 </p>
-nano .env
+mv dev-env.yml env.yml
+</p>
+nano env.yml
 </p>
 Altere Linha 72
 </p>
