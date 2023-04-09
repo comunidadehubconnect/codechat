@@ -65,8 +65,6 @@ sudo nano /etc/nginx/sites-available/codechat
 </p>
 
 ```
-sudo nano /etc/nginx/sites-available/codechat
-
 server {
 
   server_name codechat.dominio.com.br;
