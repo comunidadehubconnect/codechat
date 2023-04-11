@@ -33,6 +33,10 @@
 **Instalando CodeChat**
 
 </p>
+cd
+</p>
+sudo apt update && apt upgrade -y
+</p>
 git clone https://github.com/code-chat-br/whatsapp-api.git
 </p>
 cd whatsapp-api
@@ -54,6 +58,8 @@ ENABLED: false
 para
 </p>
 ENABLED: true
+</p>
+cd ..
 </p>
 npm i
 </p>
