@@ -63,7 +63,7 @@ cd ..
 </p>
 npm i
 </p>
-npm run start
+npm run build
 </p>
 pm2 start 'npm run start' --name Codechat
 </p>
