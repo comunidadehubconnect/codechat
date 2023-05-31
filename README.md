@@ -16,7 +16,7 @@
 	<a href="https://chat.whatsapp.com/CwcSUOcgPBL6lJWYyvA0NS" target="_blank">Grupo</a>
 </p>
 <hr />
-
+<hr />
 
 **Gostou do Tutorial? Faça sua Contribuição**
 
@@ -29,8 +29,8 @@
 45959142000119	
 ```
 
-----------------------------------------------------------------------------
-----------------------------------------------------------------------------
+<hr />
+<hr />
 
 
 **Manual de Instalação ChatWoot**
@@ -301,14 +301,37 @@ EXECUTE COMANDO ABAIXO PARA NÃO CAIR QUANDO REINICIAR A VPS
 </p>
 sudo pm2 startup ubuntu -u root && sudo pm2 startup ubuntu -u root --hp /root && sudo pm2 save
 </p>
+
 <hr />
 <hr />
 
-**Pronto tudo Funcionando**
-<hr />
-<hr />
+**Conectando Caixa de Entrada**
 
 </p>
+WEBHOOK CHATWOOT:
+</p>
+Adicione essa url no seu Chatwoot
+</p>
+https://conector.site/webhook/chatwoot
+</p>
+Crie um contato chamado BOT
+</p>
+Adicione numero telefone ao mesmo
+</p>
++123456
+</p>
+Chame contato BOT escreva 
+</p>
+/iniciar
+</p>
+
+
+
+**Pronto tudo Funcionando**
+
+<hr />
+<hr />
+
 
 **Gostou do Tutorial? Faça sua Contribuição**
 
@@ -320,4 +343,5 @@ sudo pm2 startup ubuntu -u root && sudo pm2 startup ubuntu -u root --hp /root &&
 ```
 45959142000119	
 ```
+<hr />
 <hr />
