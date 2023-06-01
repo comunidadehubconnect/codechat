@@ -208,7 +208,9 @@ sudo certbot --nginx
 </p>
 sudo service nginx restart
 </p>
+
 **EXECUTE COMANDO ABAIXO PARA NÃO CAIR QUANDO REINICIAR A VPS**
+
 </p>
 sudo pm2 startup ubuntu -u root && sudo pm2 startup ubuntu -u root --hp /root && sudo pm2 save
 </p>
