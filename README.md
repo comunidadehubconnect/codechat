@@ -12,7 +12,7 @@
 <hr />
 <hr />
 
-<details>
+
   
 <details>
 <summary>Manual de Instalação Chatwoot</summary>
