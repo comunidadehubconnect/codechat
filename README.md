@@ -12,139 +12,122 @@
 <hr />
 <hr />
 
+<details>
+  
+<details>
+<summary>Manual de Instalação Chatwoot</summary>
 
-**Manual de Instalação ChatWoot**
+### Atualize sua máquina com os últimos pacotes
 
+```bash
 sudo apt update && apt upgrade -y
-</p>
+```
+
+### Baixe o instalador automático do Chatwoot
+
+```bash
 wget https://get.chatwoot.app/linux/install.sh
-</p>
+```
+
+### Execute a permisão no arquivo install.sh
+
+```bash
 chmod +x install.sh
-</p>
+```
+
+### Inicie a instalação, digite "yes" para SSL, em seguida digite seu dominio e prossiga confimando com yes.
+### Esse processo vai levar média ~ 15
+
+  ```bash
 ./install.sh --install
-</p>
+  ```
+
 Use as opções abaixo
-</p>
+
 yes
-</p>
-chatwoot.dominio.com.br
-</p>
+
+app.dominio.com.br
+
 contato@dominio.com.br
-</p>
+
 yes para todos
-</p>
-<hr />
 
-**Alterando Idioma e ativando sua tela de cadastro**
+### Alterando Idioma e ativando sua tela de cadastro
 
-</p>
-cd /home/chatwoot/chatwoot
-</p>
-nano .env
-</p>
-Altere a linha
-</p>
-DEFAULT_LOCALE=pt_BR
-</p>
-ENABLE_ACCOUNT_SIGNUP=true
-</p>
-sudo systemctl restart chatwoot.target
-</p>
-Acesse: seudominio.com.br
-</p>
+```bash
+nano /home/chatwoot/chatwoot/.env
+```
+
+Altere a linha:
+
+`DEFAULT_LOCALE=pt_BR` para `ENABLE_ACCOUNT_SIGNUP=true`
+
+```bash
+systemctl daemon-reload && systemctl restart chatwoot.target
+```
+
+Acesse: app.seudominio.com.br
+
 Faça seu cadastro
-</p>
 
-<hr />
+### Habilitando configurações ocultas do Chatwoot no banco de dados PostgreSQL
 
-**Habilitando configurações ocultas do Chatwoot**
-
-</p>
-No banco de dados PostgreSQL
-</p>
-sudo -u postgres psql
-</p>
+```bash
+sudo -i -u postgres psql
 \c chatwoot_production
-</p>
+```
+
+```bash
 update installation_configs set locked = false;
-</p>
+```
+
+```bash
 \q
-</p>
+```
 
-<hr />
+</details>
 
-**NOMES CHATWOOT TERMOS E POLITICA DE PRIVACIDADE**
+<details>
+  
+<summary>Instalando CodeChat</summary>
 
-**Acesse super Admin**
-</p>
-https://seudominio.com.br/super_admin
-</p>
-Opção>installation_configs
-</p>
-LOGO
-</p>
-LOGO_THUMBNAIL
-</p>
-NOMES CHATWOOT:
-</p>
-Alterando nomes na plataforma
-</p>
-INSTALLATION_NAME
-</p>
-BRAND_NAME
-</p>
-TERMOS E POLITICA DE PRIVACIDADE
-</p>
-TERMS_URL
-</p>
-PRIVACY_URL
-</p>
-BRAND_URL
-</p>
-WIDGET_BRAND_URL
 
-<hr />
-<hr />
-
-**Instalando CodeChat**
-
-</p>
 cd
-</p>
+
 sudo apt update && apt upgrade -y
-</p>
+
 git clone https://github.com/code-chat-br/whatsapp-api.git
-</p>
+
 cd whatsapp-api
-</p>
+
 cd src
-</p>
+
 mv dev-env.yml env.yml
-</p>
+
 nano env.yml
-</p>
+
 Altere Linha 72
-</p>
+
 URL: https://conector.site/webhook/codechat
-</p>
+
 Altere Linha 73
-</p>
+
 ENABLED: false
-</p>
+
 para
-</p>
+
 ENABLED: true
-</p>
+
 cd ..
-</p>
+
 npm i
-</p>
+
 npm run build
-</p>
+
 pm2 start 'npm run start' --name Codechat
-</p>
+
 sudo nano /etc/nginx/sites-available/codechat
-</p>
+
 
 ```
 server {
@@ -180,38 +163,37 @@ server {
   }
 ```
 
-</p>
+
 sudo ln -s /etc/nginx/sites-available/codechat /etc/nginx/sites-enabled
-</p>
-</p>
+
+
 sudo certbot --nginx
-</p>
+
 sudo service nginx restart
-</p>
+
 
 **EXECUTE COMANDO ABAIXO PARA NÃO CAIR QUANDO REINICIAR A VPS**
 
-</p>
+
 sudo pm2 startup ubuntu -u root && sudo pm2 startup ubuntu -u root --hp /root && sudo pm2 save
-</p>
-</p>
 
-<hr />
-<hr />
+</details>
 
-**Instalando Integrador**
+<details>
 
-</p>
+<summary>Instalando Integrador</summary>
+
+
 cd
-</p>
+
 sudo apt update && apt upgrade -y
-</p>
+
 git clone https://github.com/w3nder/chatwoot-codechat
-</p>
+
 cd chatwoot-codechat
-</p>
+
 nano .env
-</p>
+
 
  ```
 PORT = 1234
@@ -224,17 +206,17 @@ TOSIGN=true
 IMPORT_MESSAGES_SENT=true
  ```
 
-</p>
+
 npm install pm2 -g
-</p>
+
 npm install
-</p>
+
 npm run build
-</p>
+
 pm2 start dist/app.js --name conector
-</p>
+
 sudo nano /etc/nginx/sites-available/conector
-</p>
+
 
 ```
 server {
@@ -271,46 +253,41 @@ server {
   
  ```
 
-</p>
-sudo ln -s /etc/nginx/sites-available/conector /etc/nginx/sites-enabled
-</p>
-sudo certbot --nginx
-</p>
-sudo service nginx restart
-</p>
-</p>
-EXECUTE COMANDO ABAIXO PARA NÃO CAIR QUANDO REINICIAR A VPS
-</p>
-sudo pm2 startup ubuntu -u root && sudo pm2 startup ubuntu -u root --hp /root && sudo pm2 save
-</p>
 
-<hr />
-<hr />
+sudo ln -s /etc/nginx/sites-available/conector /etc/nginx/sites-enabled
+
+sudo certbot --nginx
+
+sudo service nginx restart
+
+
+EXECUTE COMANDO ABAIXO PARA NÃO CAIR QUANDO REINICIAR A VPS
+
+sudo pm2 startup ubuntu -u root && sudo pm2 startup ubuntu -u root --hp /root && sudo pm2 save
+
+
+
+
+
+</details>
 
 **Conectando Caixa de Entrada**
 
-</p>
+
 WEBHOOK CHATWOOT:
-</p>
+
 Adicione essa url no seu Chatwoot
-</p>
+
 https://conector.site/webhook/chatwoot
-</p>
+
 Crie um contato chamado BOT
-</p>
+
 Adicione numero telefone ao mesmo
-</p>
+
 +123456
-</p>
+
 Chame contato BOT escreva 
-</p>
+
 /iniciar
-</p>
-
-
-
-**Pronto tudo Funcionando**
-
-
 
 
