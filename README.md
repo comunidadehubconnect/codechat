@@ -91,24 +91,38 @@ update installation_configs set locked = false;
   
 <summary>Instalando CodeChat</summary>
 
-
+```bash
 cd
+```
 
+```bash
 sudo apt update && apt upgrade -y
+```
 
+```bash
 git clone https://github.com/code-chat-br/whatsapp-api.git
+```
 
+```bash
 cd whatsapp-api
+```
 
+```bash
 cd src
 
+```bash
 mv dev-env.yml env.yml
+```
 
+```bash
 nano env.yml
+```
 
 Altere Linha 72
 
+```bash
 URL: https://conector.site/webhook/codechat
+```
 
 Altere Linha 73
 
@@ -118,18 +132,26 @@ para
 
 ENABLED: true
 
+```bash
 cd ..
 
+```bash
 npm i
-
-npm run build
-
-pm2 start 'npm run start' --name Codechat
-
-sudo nano /etc/nginx/sites-available/codechat
-
-
 ```
+
+```bash
+npm run build
+```
+
+```bash
+pm2 start 'npm run start' --name Codechat
+```
+
+```bash
+sudo nano /etc/nginx/sites-available/codechat
+```
+
+```bash
 server {
 
   server_name codechat.dominio.com.br;
@@ -163,19 +185,23 @@ server {
   }
 ```
 
-
+```bash
 sudo ln -s /etc/nginx/sites-available/codechat /etc/nginx/sites-enabled
+```
 
-
+```bash
 sudo certbot --nginx
+```
 
+```bash
 sudo service nginx restart
-
+```
 
 **EXECUTE COMANDO ABAIXO PARA NÃO CAIR QUANDO REINICIAR A VPS**
 
-
+```bash
 sudo pm2 startup ubuntu -u root && sudo pm2 startup ubuntu -u root --hp /root && sudo pm2 save
+```
 
 </details>
 
@@ -183,19 +209,27 @@ sudo pm2 startup ubuntu -u root && sudo pm2 startup ubuntu -u root --hp /root &&
 
 <summary>Instalando Integrador</summary>
 
-
+```bash
 cd
+```
 
+```bash
 sudo apt update && apt upgrade -y
+```
 
+```bash
 git clone https://github.com/w3nder/chatwoot-codechat
+```
 
+```bash
 cd chatwoot-codechat
+```
 
+```bash
 nano .env
+```
 
-
- ```
+```bash
 PORT = 1234
 CHATWOOT_ACCOUNT_ID = NUMEROCONTACHATWOOT
 CHATWOOT_TOKEN = TOKENDOCHATWOOT
@@ -206,19 +240,27 @@ TOSIGN=true
 IMPORT_MESSAGES_SENT=true
  ```
 
-
+```bash
 npm install pm2 -g
-
-npm install
-
-npm run build
-
-pm2 start dist/app.js --name conector
-
-sudo nano /etc/nginx/sites-available/conector
-
-
 ```
+
+```bash
+npm install
+```
+
+```bash
+npm run build
+```
+
+```bash
+pm2 start dist/app.js --name conector
+```
+
+```bash
+sudo nano /etc/nginx/sites-available/conector
+```
+
+```bash
 server {
 
   server_name conector.dominio.com.br;
@@ -253,18 +295,22 @@ server {
   
  ```
 
-
+```bash
 sudo ln -s /etc/nginx/sites-available/conector /etc/nginx/sites-enabled
 
+```bash
 sudo certbot --nginx
+```
 
+```bash
 sudo service nginx restart
-
+```
 
 EXECUTE COMANDO ABAIXO PARA NÃO CAIR QUANDO REINICIAR A VPS
 
+```bash
 sudo pm2 startup ubuntu -u root && sudo pm2 startup ubuntu -u root --hp /root && sudo pm2 save
-
+```
 
 
 
